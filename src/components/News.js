@@ -278,9 +278,8 @@ export class News extends Component {
           <h1 className='text-center text-uppercase text-capitalize'>NewsMonkey -Top headlines</h1>
           <div className="row">
             {this.state.articles.map((element)=>{
-            
-           return <div className="col-md-4">
-                   <NewsItem title="my tittle" description="my desc" newsUrl="todo"/>
+           return <div className="col-md-4"  key={element.url}>
+                   <NewsItem  title={element.title.slice(0,45)} description={element.description.slice(0,88)} imageUrl={element.urlToImage} newsUrl={element.url}/>
             </div>
             })}
           </div>
