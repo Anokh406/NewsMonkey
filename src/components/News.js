@@ -277,10 +277,12 @@ export class News extends Component {
         <div className="container">
           <h1 className='text-center text-uppercase text-capitalize'>NewsMonkey -Top headlines</h1>
           <div className="row">
-            {this.state.articles.map((element)={console.log(element)})}
-            <div className="col-md-4">
+            {this.state.articles.map((element)=>{
+            
+           return <div className="col-md-4">
                    <NewsItem title="my tittle" description="my desc" newsUrl="todo"/>
             </div>
+            })}
           </div>
         </div>
         </>
