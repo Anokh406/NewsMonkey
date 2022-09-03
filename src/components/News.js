@@ -15,7 +15,7 @@ constructor(){
       let data = await fetch(url);
       let parsedData = await data.json();
       this.setState({articles:parsedData.articles,
-      totalresult:parsedData.totalresult});
+      totalresult:parsedData.totalResults});
     }
     handlePrevios= async ()=>{
     console.log("previous");
@@ -26,6 +26,7 @@ constructor(){
       page:this.state.page - 1,
       articles:parsedData.articles
     })
+    console.log(parsedData)
   }
 handleNext= async ()=>{
       console.log("Next");
@@ -58,7 +59,7 @@ handleNext= async ()=>{
               })}
             </div>
             <div className="container d-flex justify-content-between">
-            <button disabled={this.state.page>=1} type="button" className="btn btn-dark" onClick={this.handlePrevios}>&larr; Previous</button>
+            <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevios}>&larr; Previous</button>
             <button type="button" className="btn btn-dark" onClick={this.handleNext}>Next &rarr;</button>
             </div>
         </div>
