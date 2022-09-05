@@ -33,7 +33,7 @@ constructor(props){
 
 async updateNews(props){
   props.setProgress(10)
-  const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=d3cb70a9031c4b2e87e10a22ce0ac537&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+  const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
       this.setState({loading:true})
       let data = await fetch(url);
       props.setProgress(30);
@@ -46,7 +46,7 @@ async updateNews(props){
 }
     async componentDidMount(){
       
-      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=d3cb70a9031c4b2e87e10a22ce0ac537&page=1&pageSize=${this.props.pageSize}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=1&pageSize=${this.props.pageSize}`;
       this.setState({loading:true})
       let data = await fetch(url);
       let parsedData = await data.json();
@@ -56,7 +56,7 @@ async updateNews(props){
  
   fetchMoreData = async () => {
     this.setState({ page: this.state.page + 1 })
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=d3cb70a9031c4b2e87e10a22ce0ac537&page=1&pageSize=${this.props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=1&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json()
     this.setState({
