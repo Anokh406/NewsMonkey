@@ -2,11 +2,7 @@ import './App.css';
 import React, { useState} from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import {BrowserRouter,Routes,Route,} from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar';
 
 const App=()=> {
@@ -14,7 +10,7 @@ const App=()=> {
     const [progress, setProgress] = useState(0)
     const pagesize=70;
     const apiKey='d3cb70a9031c4b2e87e10a22ce0ac537';
-  
+    // const apiKey='16d916ce7993467c89c99c80336087b0';
     return (
     <>
     <BrowserRouter>
@@ -33,10 +29,7 @@ const App=()=> {
       <Route exact path='/sports' element={<News setProgress={setProgress} apiKey={apiKey}    key={'sports'} pagesize={pagesize} country={'in'} category={'sports'}/>}/>
       <Route exact path='/technology' element={<News setProgress={setProgress} apiKey={apiKey}    key={'technology'} pagesize={pagesize} country={'in'} category={'technology'}/>}/>
     </Routes>
-    
-   
     </BrowserRouter>
-   
     </>
     )
 }
